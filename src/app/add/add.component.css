@@ -1,0 +1,27 @@
+mat-card {
+    margin: 10px;
+}
+
+mat-checkbox {
+    margin-right: 10px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+}
+span {
+    flex: 1;
+}
+.form {
+    text-align: center;
+}
+
+/* input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+} */

@@ -1,0 +1,26 @@
+.barContainer {
+    background-color: white;
+    border-radius: 4px;
+    margin: 10px;
+    height: 42px;
+    padding: 10px;
+}
+
+.progressBar {
+    background-color: lightgray;
+    vertical-align: middle;
+    margin: 10px;
+    border-radius: 4px;
+    height:24px;
+    align-content: center;
+}
+
+.currentProgress {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 14px;
+    height:24px;
+    border-radius: 4px;
+    background-color: #3f51b5;
+    text-align: center;
+    color: white;
+}

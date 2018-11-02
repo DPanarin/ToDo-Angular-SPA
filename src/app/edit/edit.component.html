@@ -1,0 +1,18 @@
+<mat-card class="form">
+  <form [formGroup]="form" (submit)="onSubmit()" novalidate>
+      <mat-form-field>
+        <input matInput formControlName="task" placeholder="">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Edit task</button>
+      <input matInput formControlName="estimatedTime" placeholder="Estimated time"><br><br>
+      <textarea formControlName="description" id="" cols="30" rows="10"></textarea>
+  </form>
+  <div *ngIf="form.controls.task.invalid  && form.controls.task.dirty" class="promptError">
+      <span *ngIf="form.controls.task.errors?.required">
+        Task name should not be empty
+      </span>
+      <span *ngIf="form.controls.task.errors?.minlength">
+        Task length should be 3 or more symbols
+      </span>
+  </div>
+</mat-card>

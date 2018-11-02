@@ -1,0 +1,18 @@
+mat-card {
+    margin: 10px;
+}
+
+mat-checkbox {
+    margin-right: 10px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+}
+span {
+    flex: 1;
+}
+.form {
+    text-align: center;
+}

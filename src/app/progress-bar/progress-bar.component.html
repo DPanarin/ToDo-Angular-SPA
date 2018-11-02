@@ -1,0 +1,8 @@
+<div class="barContainer">
+  <div class="progressBar">
+    <div class="currentProgress" *ngIf="completedTasksPercentage" appWidthChange [width] = "completedTasksPercentage">
+      {{completedTasksPercentage}}%
+    </div>
+    <div *ngIf="!completedTasksPercentage" style="text-align: center">0%</div>
+  </div>
+</div>

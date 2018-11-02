@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <mat-card class="form">
+    <form [formGroup]="form" (submit)="onSubmit()" novalidate>
+      <mat-form-field>
+        <input matInput formControlName="task" placeholder="Task name">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Add task</button><br>
+      <div *ngIf="form.controls.task.invalid  && form.controls.task.dirty" class="promptError">
+        <span *ngIf="form.controls.task.errors?.required">
+          Task name should not be empty
+        </span>
+        <span *ngIf="form.controls.task.errors?.minlength">
+          Task length should be 3 or more symbols
+        </span>
+      </div>
+      <input matInput formControlName="estimatedTime" placeholder="Estimated time"><br>
+      <span *ngIf="form.controls.estimatedTime.dirty && form.controls.estimatedTime.errors?.numberFieldValidate" class="promptError">
+        Estimated time should be a number and bigger then zero
+      </span>
+      <br>
+      <textarea formControlName="description" id="" cols="30" rows="10"></textarea>
+    </form>
+    <button mat-raised-button color="primary" (click)="deleteAllTasks()" type="clear" *ngIf="tasks.length > 0">
+      Clear task list
+    </button>
+  </mat-card>
+
+  
+  <app-progress-bar [totalTasks]="totalTasks" [completedTasks]="completedTasks"></app-progress-bar>
+
+  
+  <ng-container *ngFor="let task of tasks">
+    <mat-card class="task">
+      <mat-checkbox color="primary" [checked]="task.isComplete" (change)="changeTaskStatus(task, $event.checked)"></mat-checkbox>
+      <span appCrossOut [isComplete]= "task.isComplete">{{task.taskName}}</span>
+      <span>{{task.estimatedTime}}</span>
+      <span>{{task.description}}</span>
+      <button mat-raised-button color="primary" [routerLink]="['/', task.taskId,'edit']" routerLinkActive="active" >Edit task</button>
+      <button mat-icon-button color="warn" (click)="deleteTask(task)">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-card>
+  </ng-container>
+</div>
